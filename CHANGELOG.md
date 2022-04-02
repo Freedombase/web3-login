@@ -16,6 +16,7 @@
 
 * Switched to TypeScript
 * Ethereum address validation added to check
+* Automatically adding `script` tags for the needed libraries based on settings
 
 ## v0.0.1 - 2022/4/2
 

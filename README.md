@@ -1,38 +1,45 @@
-# template-package
+# freedombase:web3-login
+
 Template package with CI and everything else to get started quickly with creating a new FOSS Meteor package.
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-![GitHub](https://img.shields.io/github/license/Meteor-Community-Packages/template-package)
+![GitHub](https://img.shields.io/github/license/freedombase/web3-login)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Meteor-Community-Packages/template-package.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Meteor-Community-Packages/template-package/context:javascript) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Meteor-Community-Packages/template-package?label=latest&sort=semver) [![](https://img.shields.io/badge/semver-2.0.0-success)](http://semver.org/spec/v2.0.0.html) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/freedombase/web3-login.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/freedombase/web3-login/context:javascript) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/freedombase/web3-login?label=latest&sort=semver) [![](https://img.shields.io/badge/semver-2.0.0-success)](http://semver.org/spec/v2.0.0.html) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+## ALPHA stage
+
+This package is in active development and is bare bones. Do not use in production. Yet!
+
 ## Getting started
-1. Copy this repo to your new repository
-2. Update links, names and content in `package.js`, `package.json`, `CHANGELOG.md`, `CONTRIBUTING.md`, `README.md`
-3. Update content in `.github` directory to your liking.
-* [Funding documentation](https://help.github.com/en/github/building-a-strong-community/displaying-a-sponsor-button-in-your-repository)
 
-## What is under the hood 
-### GitHub apps
-* [All Contributors](https://allcontributors.org/)
-* [LGTM.com](https://lgtm.com/)
+### Install
 
-### Code style
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+```shell
+meteor add freedombase:web3-login
+```
 
-### Semver
-This repository is setup to follow the [Semantic Versioning standard](https://semver.org/).
+### Prepare your app
 
-[![](https://img.shields.io/badge/semver-2.0.0-success)](http://semver.org/spec/v2.0.0.html)
+Add the following to your `main.html` file
 
-### Typescript
-If you want to use TypeScript in your package follow the following steps.
+```html
 
-#### package.js
-#### Standard
-You will need to adjust StandardJS according to [their guide](https://standardjs.com/index.html#typescript). 
+<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+```
+
+If you are using Wallet Connect also add:
+
+```html
+
+<script type="text/javascript"
+        src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+```
+
+## Settings
 
 ## Contributors ✨
 
@@ -51,4 +58,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+Contributions of any kind welcome!

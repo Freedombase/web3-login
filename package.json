@@ -1,17 +1,17 @@
 {
-  "name": "template-meteor-package",
+  "name": "freedombase-web3-login",
   "version": "1.0.0",
   "private": true,
   "description": "Template Meteor package for FOSS",
   "main": "package.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Meteor-Community-Packages/template-package.git"
+    "url": "git+https://github.com/Freedombase/web3-login.git"
   },
   "bugs": {
-    "url": "https://github.com/Meteor-Community-Packages/template-package/issues"
+    "url": "https://github.com/Freedombase/web3-login/issues"
   },
-  "homepage": "https://github.com/Meteor-Community-Packages/template-package#readme",
+  "homepage": "https://github.com/Freedombase/web3-login#readme",
   "readme": "README.md",
   "scripts": {
     "test": "npm run lint && meteor test-packages ./",

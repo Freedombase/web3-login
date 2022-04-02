@@ -21,7 +21,7 @@ Package.onUse(function (api) {
 Package.onTest(function (api) {
   api.use('ecmascript')
   api.use('tinytest')
-  api.use('template-package')
+  api.use('freedombase:web3-login')
   api.mainModule('./tests/package-tests-client.js', 'client')
   api.mainModule('./tests/package-tests-server.js', 'server')
 })

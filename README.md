@@ -21,25 +21,30 @@ This package is in active development and is bare bones. Do not use in productio
 meteor add freedombase:web3-login
 ```
 
-### Prepare your app
-
-Add the following to your `main.html` file
-
-```html
-
-<script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
-```
-
-If you are using Wallet Connect also add:
-
-```html
-
-<script type="text/javascript"
-        src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
-```
-
 ## Settings
+
+To set up additional providers beside Metamask add them to your `settings.json`:
+
+```json
+{
+  "public": {
+    "packages": {
+      'freedombase:web3-login': {
+        "providername": {
+          "provider": "settings"
+        }
+      }
+    }
+  }
+}
+```
+
+Providers available at this moment (no need to install provider package, for settings see the `providerOptions` part):
+
+* [WalletConnect](https://github.com/Web3Modal/web3modal/blob/master/docs/providers/walletconnect.md)
+* [Formatic](https://github.com/Web3Modal/web3modal/blob/master/docs/providers/fortmatic.md)
+
+More coming soon!
 
 ## Contributors ✨
 

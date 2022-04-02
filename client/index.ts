@@ -1,9 +1,54 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 
-export const isHttps = () => location.protocol === 'https:'
+/* eslint-env browser */
 
-const Web3Modal = window.Web3Modal.default
+/* global location */
+
+interface IProviderInfo {
+  id: string
+  type: string
+  check: string
+  name: string
+  logo: string
+  description?: string
+  package?: {
+    required?: string[]
+  }
+}
+
+type ThemeColors = {
+  background: string
+  main: string
+  secondary: string
+  border: string
+  hover: string
+}
+
+type ProviderInfo = {
+  package: IProviderInfo
+  options?: any
+}
+
+interface ProviderOptions {
+  walletconnect?: ProviderInfo
+  formatic?: ProviderInfo
+  // TODO https://github.com/Web3Modal/web3modal#provider-options
+  torus?: ProviderInfo
+  portis?: ProviderInfo
+  authereum?: ProviderInfo
+  frame?: ProviderInfo
+  bitski?: ProviderInfo
+  venly?: ProviderInfo
+  burnerconnect?: ProviderInfo
+  mewconnect?: ProviderInfo
+  binancechainwallet?: {
+    package: boolean
+  }
+  walletlink?: ProviderInfo
+}
+
+export const isHttps = () => location.protocol === 'https:'
 
 // Web3modal instance
 let web3Modal
@@ -14,9 +59,10 @@ let provider
 // Address of the selected account
 let selectedAccount
 
-function init () {
-  const Web3Modal = window.Web3Modal.default
-  const WalletConnectProvider = window.WalletConnectProvider.default
+function init() {
+  // We have to go to window.exports to access what we import in ./importScripts.ts
+  // @ts-ignore
+  const Web3Modal = window.exports.Web3Modal.default
 
   // Check that the web page is run in a secure context,
   // as otherwise MetaMask won't be available
@@ -27,27 +73,27 @@ function init () {
   // Tell Web3modal what providers we have available.
   // Built-in web browser provider (only one can exist as a time)
   // like MetaMask, Brave or Opera is added automatically by Web3modal
-  const providerOptions = {}
+  const providerOptions: ProviderOptions = {}
   // TODO more options
   if (
     Meteor.settings.public?.packages?.['freedombase:web3-login']
       ?.walletconnect &&
-    window.WalletConnectProvider
+    window.exports.WalletConnectProvider
   ) {
     providerOptions.walletconnect = {
-      package: window.WalletConnectProvider?.default,
+      package: window.exports.WalletConnectProvider?.default,
       options:
-      Meteor.settings.public.packages['freedombase:web3-login'].walletconnect
+        Meteor.settings.public.packages['freedombase:web3-login'].walletconnect
     }
   }
   if (
     Meteor.settings.public?.packages?.['freedombase:web3-login']?.formatic &&
-    window.Fortmatic
+    window.exports.Fortmatic
   ) {
     providerOptions.formatic = {
-      package: window.Fortmatic,
+      package: window.exports.Fortmatic,
       options:
-      Meteor.settings.public.packages['freedombase:web3-login'].formatic
+        Meteor.settings.public.packages['freedombase:web3-login'].formatic
     }
   }
 
@@ -60,9 +106,9 @@ function init () {
   })
 }
 
-async function fetchAccountData (callback) {
+async function fetchAccountData(callback) {
   // Get a Web3 instance for the wallet
-  const web3 = new Web3(provider)
+  const web3 = new window.exports.Web3(provider)
 
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts()
@@ -75,7 +121,7 @@ async function fetchAccountData (callback) {
         web3Address: selectedAccount
       }
     ],
-    userCallback: (error, result) => {
+    userCallback: (error: Meteor.Error) => {
       if (error) {
         if (error.error === 403 && error.reason === 'User not found') {
           // Create a new user
@@ -88,11 +134,11 @@ async function fetchAccountData (callback) {
           if (callback) {
             callback(error)
           } else {
-            throw new Meteor.Error(error)
+            throw error
           }
         }
       } else {
-        callback && callback()
+        callback?.()
       }
     }
   })
@@ -105,7 +151,7 @@ async function fetchAccountData (callback) {
  * - User switches networks in wallet
  * - User connects wallet initially
  */
-async function refreshAccountData (callback) {
+async function refreshAccountData(callback) {
   await fetchAccountData(callback)
 }
 
@@ -136,3 +182,6 @@ export const loginWithWeb3 = async (callback) => {
 
   await refreshAccountData(callback)
 }
+
+// @ts-ignore
+Meteor.loginWithWeb3 = loginWithWeb3

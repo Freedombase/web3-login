@@ -18,7 +18,7 @@ Accounts.registerLoginHandler('web3', (options) => {
   const user = Meteor.users.findOne(
     { 'services.web3.address': options.web3Address },
     {
-      fields: { _id: 1, 'options.services.web3': 1, 'options.services.2fa': 1 }
+      projection: { _id: 1, 'options.services.web3': 1, 'options.services.2fa': 1 }
     }
   )
   if (!user) {

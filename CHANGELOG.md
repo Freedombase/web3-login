@@ -8,7 +8,12 @@
 
 ### Fixes
 
-### Depracated
+## v0.1.0 - 2022/05/09
+
+### New features
+
+* Added function to verify user's address
+* Updated dependencies to the latest versions
 
 ## v0.0.2 - 2022/4/2
 

@@ -26,8 +26,8 @@
     "parser": "babel-eslint"
   },
   "funding": {
-    "type": "PayPal",
-    "url": "https://www.paypal.me/JDvorak"
+    "type": "GitHub",
+    "url": "https://www.github.com/sponsors/storytellercz"
   },
   "husky": {
     "hooks": {

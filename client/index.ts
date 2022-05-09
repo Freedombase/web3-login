@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 
+import '../common/index'
+
 /* eslint-env browser */
 
 /* global location */
@@ -123,7 +125,9 @@ async function fetchAccountData(callback) {
     ],
     userCallback: (error: Meteor.Error) => {
       if (error) {
-        if (error.error === 403 && error.reason === 'User not found') {
+        // Got 403 error which suggest that user was not found.
+        // If there isn't any user signed-in then initiate new user creation.
+        if (error.error === 403 && !Meteor.userId()) {
           // Create a new user
           Meteor.call(
             'freedombase:createWeb3User',
@@ -132,7 +136,7 @@ async function fetchAccountData(callback) {
           )
         } else {
           if (callback) {
-            callback(error)
+            callback(error, selectedAccount)
           } else {
             throw error
           }
@@ -176,11 +180,43 @@ export const loginWithWeb3 = async (callback) => {
   })
 
   // Subscribe to networkId change
+  // This one is deprecated, remove in next major version
   provider.on('networkChanged', (networkId) => {
     fetchAccountData(callback)
   })
 
   await refreshAccountData(callback)
+}
+
+export const verifyUserAction = async (
+  message: string,
+  recordVerification = false,
+  callback?: (error: Meteor.Error, result: boolean) => void
+) => {
+  const verificationType =
+    Meteor.settings?.public?.packages?.['freedombase:web3-login']
+      ?.verificationType || 'personal_sign'
+
+  const user = Meteor.user()
+  const usersEthAddress = user.services.web3.address
+  console.log(usersEthAddress)
+
+  try {
+    const msg = `0x${Buffer.from(message, 'utf8').toString('hex')}`
+    const sign = await ethereum.request({
+      method: verificationType,
+      params: [msg, usersEthAddress, Meteor.userId()]
+    })
+    Meteor.call(
+      'freedombase:verifyWeb3User',
+      sign,
+      message,
+      recordVerification,
+      callback
+    )
+  } catch (e) {
+    console.error(e)
+  }
 }
 
 // @ts-ignore

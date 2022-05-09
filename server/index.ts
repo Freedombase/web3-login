@@ -1,12 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import { check, Match } from 'meteor/check'
-
-// eth address validation
-export const ethCheck = Match.Where((input: string) => {
-  check(input, String)
-  return /^(0x)[0-9a-f]{40}$/i.test(input)
-})
+import { check } from 'meteor/check'
+import { ethCheck } from '../common'
+import '../common/index'
 
 Accounts.registerLoginHandler('web3', (options) => {
   if (!options.web3Address) return undefined
@@ -18,7 +14,11 @@ Accounts.registerLoginHandler('web3', (options) => {
   const user = Meteor.users.findOne(
     { 'services.web3.address': options.web3Address },
     {
-      projection: { _id: 1, 'options.services.web3': 1, 'options.services.2fa': 1 }
+      projection: {
+        _id: 1,
+        'options.services.web3': 1,
+        'options.services.2fa': 1
+      }
     }
   )
   if (!user) {
@@ -27,6 +27,7 @@ Accounts.registerLoginHandler('web3', (options) => {
   }
 
   // TODO 2FA
+
   return {
     userId: user._id
   }
@@ -62,7 +63,7 @@ Meteor.methods({
       }
     )
 
-    // Loging the new user in
+    // Logging the new user in
     // @ts-ignore
     const result = Accounts._runLoginHandlers('web3', {
       web3Address: ethAddress

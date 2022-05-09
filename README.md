@@ -29,7 +29,7 @@ To set up additional providers beside Metamask add them to your `settings.json`:
 {
   "public": {
     "packages": {
-      'freedombase:web3-login': {
+      "freedombase:web3-login": {
         "providername": {
           "provider": "settings"
         }

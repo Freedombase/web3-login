@@ -50,7 +50,7 @@ Meteor.methods({
 
     // Create new user
     // @ts-ignore
-    Accounts.insertUserDoc(
+    return Accounts.insertUserDoc(
       {},
       {
         username: ethAddress,
@@ -63,14 +63,5 @@ Meteor.methods({
         }
       }
     )
-
-    // Logging the new user in
-    // @ts-ignore
-    const result = Accounts._runLoginHandlers('web3', {
-      web3Address: ethAddress
-    })
-
-    // @ts-ignore
-    return Accounts._attemptLogin(this, 'login', arguments, result)
   }
 })

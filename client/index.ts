@@ -170,7 +170,20 @@ async function fetchAccountData(
             Meteor.call(
               'freedombase:createWeb3User',
               selectedAccount,
-              (error, response) => callback(error, response)
+              (error, response) => {
+                if (response) {
+                  Accounts.callLoginMethod({
+                    methodArguments: [
+                      {
+                        web3Address: selectedAccount
+                      }
+                    ],
+                    userCallback: callback
+                  })
+                } else {
+                  callback(error)
+                }
+              }
             )
           } else {
             if (callback) {

@@ -8,6 +8,11 @@
 
 ### Fixes
 
+## v0.2.2 - 2022/05/10
+
+### Fixes
+* Fix user not being logged in after account creation
+
 ## v0.2.1 - 2022/05/10
 * Fix import/export issue
 

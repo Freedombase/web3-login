@@ -26,7 +26,7 @@ Accounts.registerLoginHandler('web3', (options) => {
     Accounts._handleError('User not found')
   }
 
-  // TODO 2FA
+  // TODO 2FA?
 
   return {
     userId: user._id

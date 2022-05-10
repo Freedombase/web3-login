@@ -46,6 +46,24 @@ Providers available at this moment (no need to install provider package, for set
 
 More coming soon!
 
+## Client methods
+### Meteor.loginWithWeb3 / loginWithWeb3
+@locus client
+@param `loginMessage` { String }
+@param `callback` optional { (error?: Meteor.Error, result?: boolean) => void }
+
+### verifyUserAction
+@locus client
+@param `message` { String }
+@param `recordVerification` { Boolean }
+@param `callback` optional { (error?: Meteor.Error, result?: boolean) => void }
+
+### verifyUserLogin
+@locus client
+@param `message` { String }
+@param `usersEthAddress` { String }
+@param `callback` optional { (error?: Meteor.Error, result?: boolean) => void }
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):

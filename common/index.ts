@@ -9,6 +9,37 @@ export const ethCheck = Match.Where((input: string) => {
 })
 
 Meteor.methods({
+  'freedombase:verifyWeb3Login': function (signature: string,
+    message: string, usersEthAddress: string) {
+    check(signature, String)
+    check(message, String)
+    check(usersEthAddress, ethCheck)
+
+    const verificationType =
+      Meteor.settings?.public?.packages?.['freedombase:web3-login']
+        ?.verificationType || 'personal_sign'
+
+    let verified = false
+
+    switch (verificationType) {
+      case 'personal_sign':
+        try {
+          const recoveredAddress = recoverPersonalSignature({
+            data: message,
+            signature
+          })
+          if (recoveredAddress === usersEthAddress.toLowerCase()) {
+            verified = true
+          }
+        } catch (e) {
+          throw new Meteor.Error('500', 'Verification failed!', e)
+        }
+        break
+      default:
+        throw new Meteor.Error('500', 'Verification method not supported!')
+    }
+    return verified
+  },
   'freedombase:verifyWeb3User': function (
     signature: string,
     message: string,
@@ -52,11 +83,11 @@ Meteor.methods({
             }
           }
         } catch (e) {
-          throw new Meteor.Error('500', 'Verification failed!')
+          throw new Meteor.Error('500', 'Verification failed!', e)
         }
         break
       default:
-        throw new Meteor.Error('500', 'Verification method not specified!')
+        throw new Meteor.Error('500', 'Verification method not supported!')
     }
 
     return verified

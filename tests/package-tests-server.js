@@ -1,12 +1,9 @@
 // Import Tinytest from the tinytest Meteor package.
 import { Tinytest } from 'meteor/tinytest'
+import { check } from 'meteor/check'
 
-// Import and rename a variable exported by client index.
-import { name as packageNameServer } from 'meteor/template-package'
+import { ethCheck } from 'meteor/freedombase:web3-login'
 
-// Write your tests here!
-// Here is an example.
-
-Tinytest.add('template-package - server', function (test) {
-  test.equal(packageNameServer, 'template-package-server')
+Tinytest.add('freedombase:web3-login - server', function (test) {
+  test.equal(check('0xFfA04869c1021d4b173047A774fC00d9ABA78818', ethCheck), true)
 })

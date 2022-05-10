@@ -9,9 +9,9 @@ Template package with CI and everything else to get started quickly with creatin
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-## ALPHA stage
+## BETA stage
 
-This package is in active development and is bare bones. Do not use in production. Yet!
+This package is in active development and is working, but many features are still missing and bugs are very much likely. Use with caution!
 
 ## Getting started
 

@@ -2,7 +2,8 @@ import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { check } from 'meteor/check'
 import { ethCheck } from '../common'
-import '../common/index'
+
+export '../common/index'
 
 Accounts.registerLoginHandler('web3', (options) => {
   if (!options.web3Address) return undefined

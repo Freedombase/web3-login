@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 
-import '../common/index'
+export '../common/index'
 
 /* eslint-env browser */
 

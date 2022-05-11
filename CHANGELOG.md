@@ -8,7 +8,7 @@
 
 ### Fixes
 
-## v0.3.0 - 2022/05/11
+## v0.3.0 & v0.3.1 - 2022/05/11
 
 ### Breaking changes
 * Instead of just `loginMessage`, `loginWithWeb3` now accepts options object
@@ -18,6 +18,7 @@
 
 ### Fixes
 * Improved login handler to reduce round trip back to client when new user needs to be created.
+* v0.3.1 was published as v0.3 has some issues with publishing
 
 ## v0.2.2 - 2022/05/10
 

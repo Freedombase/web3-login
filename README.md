@@ -6,7 +6,7 @@ Template package with CI and everything else to get started quickly with creatin
 ![GitHub](https://img.shields.io/github/license/freedombase/web3-login)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/freedombase/web3-login.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/freedombase/web3-login/context:javascript) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/freedombase/web3-login?label=latest&sort=semver) [![](https://img.shields.io/badge/semver-2.0.0-success)](http://semver.org/spec/v2.0.0.html) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## BETA stage
@@ -73,12 +73,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/StorytellerCZ"><img src="https://avatars2.githubusercontent.com/u/1715235?v=4" width="100px;" alt="Jan Dvorak"/><br /><sub><b>Jan Dvorak</b></sub></a><br /><a href="https://github.com/Meteor Community Packages/template-package/commits?author=StorytellerCZ" title="Code">💻</a> <a href="https://github.com/Meteor Community Packages/template-package/commits?author=StorytellerCZ" title="Documentation">📖</a> <a href="#maintenance-StorytellerCZ" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/StorytellerCZ"><img src="https://avatars2.githubusercontent.com/u/1715235?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jan Dvorak</b></sub></a><br /><a href="https://github.com/Meteor-Community-Packages/template-package/commits?author=StorytellerCZ" title="Code">💻</a> <a href="https://github.com/Meteor-Community-Packages/template-package/commits?author=StorytellerCZ" title="Documentation">📖</a> <a href="#maintenance-StorytellerCZ" title="Maintenance">🚧</a> <a href="#ideas-StorytellerCZ" title="Ideas, Planning, & Feedback">🤔</a> <a href="#projectManagement-StorytellerCZ" title="Project Management">📆</a> <a href="#research-StorytellerCZ" title="Research">🔬</a> <a href="https://github.com/Meteor-Community-Packages/template-package/commits?author=StorytellerCZ" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.

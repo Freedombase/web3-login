@@ -18,7 +18,11 @@
       "contributions": [
         "code",
         "doc",
-        "maintenance"
+        "maintenance",
+        "ideas",
+        "projectManagement",
+        "research",
+        "test"
       ]
     }
   ],

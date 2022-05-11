@@ -5,7 +5,11 @@ import { ethCheck } from '../common'
 
 export '../common/index'
 
-Accounts.registerLoginHandler('web3', (options) => {
+type LoginHandlerOptions = {
+  web3Address: string
+}
+
+Accounts.registerLoginHandler('web3', (options: LoginHandlerOptions) => {
   if (!options.web3Address) return undefined
 
   check(options, {
@@ -23,8 +27,23 @@ Accounts.registerLoginHandler('web3', (options) => {
     }
   )
   if (!user) {
-    // @ts-ignore
-    Accounts._handleError('User not found')
+    // Create user
+    const userId = Accounts.insertUserDoc(
+      {},
+      {
+        username: options.web3Address,
+        services: {
+          web3: {
+            id: options.web3Address,
+            address: options.web3Address,
+            verified: false
+          }
+        }
+      }
+    )
+    return {
+      userId
+    }
   }
 
   // TODO 2FA?
@@ -42,26 +61,4 @@ Meteor.users.createIndex('services.web3.address', {
 Meteor.users.createIndex('services.web3.id', {
   unique: true,
   sparse: true
-})
-
-Meteor.methods({
-  'freedombase:createWeb3User': function (ethAddress: string) {
-    check(ethAddress, ethAddress)
-
-    // Create new user
-    // @ts-ignore
-    return Accounts.insertUserDoc(
-      {},
-      {
-        username: ethAddress,
-        services: {
-          web3: {
-            id: ethAddress,
-            address: ethAddress,
-            verified: false
-          }
-        }
-      }
-    )
-  }
 })

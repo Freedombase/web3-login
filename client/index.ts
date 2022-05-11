@@ -50,6 +50,11 @@ interface ProviderOptions {
   walletlink?: ProviderInfo
 }
 
+export type LoginOptions = {
+  loginMessage: string,
+  onlyReturnAddress?: boolean // This will stop the actual login method and only returns the address
+}
+
 export const isHttps = () => location.protocol === 'https:'
 
 // Web3modal instance
@@ -85,7 +90,7 @@ function init() {
     providerOptions.walletconnect = {
       package: window.exports.WalletConnectProvider?.default,
       options:
-        Meteor.settings.public.packages['freedombase:web3-login'].walletconnect
+      Meteor.settings.public.packages['freedombase:web3-login'].walletconnect
     }
   }
   if (
@@ -95,7 +100,7 @@ function init() {
     providerOptions.formatic = {
       package: window.exports.Fortmatic,
       options:
-        Meteor.settings.public.packages['freedombase:web3-login'].formatic
+      Meteor.settings.public.packages['freedombase:web3-login'].formatic
     }
   }
 
@@ -136,7 +141,7 @@ export const verifyUserLogin = async (
 }
 
 async function fetchAccountData(
-  message: string,
+  options: LoginOptions,
   callback: (error?: Meteor.Error, response?: string) => void
 ) {
   // Get a Web3 instance for the wallet
@@ -147,12 +152,17 @@ async function fetchAccountData(
 
   // MetaMask does not give you all accounts, only the selected account
   selectedAccount = accounts[0]
-  await verifyUserLogin(message, selectedAccount, (err, result) => {
+  await verifyUserLogin(options.loginMessage, selectedAccount, (err, result) => {
     if (err) {
       throw new Meteor.Error('500', err.reason)
     }
     if (!result) {
       return
+    }
+
+    if (options.onlyReturnAddress) {
+      callback(null, selectedAccount)
+      return selectedAccount
     }
 
     Accounts.callLoginMethod({
@@ -163,34 +173,10 @@ async function fetchAccountData(
       ],
       userCallback: (error: Meteor.Error) => {
         if (error) {
-          // Got 403 error which suggest that user was not found.
-          // If there isn't any user signed-in then initiate new user creation.
-          if (error.error === 403 && !Meteor.userId()) {
-            // Create a new user
-            Meteor.call(
-              'freedombase:createWeb3User',
-              selectedAccount,
-              (error, response) => {
-                if (response) {
-                  Accounts.callLoginMethod({
-                    methodArguments: [
-                      {
-                        web3Address: selectedAccount
-                      }
-                    ],
-                    userCallback: callback
-                  })
-                } else {
-                  callback(error)
-                }
-              }
-            )
+          if (callback) {
+            callback(error, selectedAccount)
           } else {
-            if (callback) {
-              callback(error, selectedAccount)
-            } else {
-              throw error
-            }
+            throw error
           }
         } else {
           callback?.()
@@ -208,12 +194,12 @@ async function fetchAccountData(
  * - User switches networks in wallet
  * - User connects wallet initially
  */
-async function refreshAccountData(message: string, callback) {
-  await fetchAccountData(message, callback)
+async function refreshAccountData(options: LoginOptions, callback) {
+  await fetchAccountData(options, callback)
 }
 
 export const loginWithWeb3 = async (
-  loginMessage: string,
+  options: LoginOptions,
   callback: (error?: Meteor.Error, walletAddress?: string) => void
 ) => {
   init()
@@ -227,21 +213,21 @@ export const loginWithWeb3 = async (
 
   // Subscribe to accounts change
   provider.on('accountsChanged', (accounts) => {
-    fetchAccountData(loginMessage, callback)
+    fetchAccountData(options, callback)
   })
 
   // Subscribe to chainId change
   provider.on('chainChanged', (chainId) => {
-    fetchAccountData(loginMessage, callback)
+    fetchAccountData(options, callback)
   })
 
   // Subscribe to networkId change
   // This one is deprecated, remove in next major version
   provider.on('networkChanged', (networkId) => {
-    fetchAccountData(loginMessage, callback)
+    fetchAccountData(options, callback)
   })
 
-  await refreshAccountData(loginMessage, callback)
+  await refreshAccountData(options, callback)
 }
 
 export const verifyUserAction = async (

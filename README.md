@@ -49,7 +49,7 @@ More coming soon!
 ## Client methods
 ### Meteor.loginWithWeb3 / loginWithWeb3
 @locus client
-@param `loginMessage` { String }
+@param `options` { { loginMessage: string, onlyReturnAddress?: boolean } }
 @param `callback` optional { (error?: Meteor.Error, result?: boolean) => void }
 
 ### verifyUserAction

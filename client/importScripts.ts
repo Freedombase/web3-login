@@ -12,9 +12,6 @@ function createScript(url) {
   }
 }
 
-createScript('https://unpkg.com/web3@1.7.3/dist/web3.min.js')
-createScript('https://unpkg.com/web3modal@1.9.7/dist/index.js')
-
 // Setup additional providers
 // WalletConnect
 if (

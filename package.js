@@ -12,7 +12,9 @@ Package.describe({
 })
 
 Npm.depends({
-  '@metamask/eth-sig-util': '4.0.1'
+  '@metamask/eth-sig-util': '4.0.1',
+  web3: '1.7.3',
+  web3modal: '1.9.7'
 })
 
 Package.onUse(function (api) {

@@ -8,6 +8,11 @@
 
 ### Fixes
 
+## v0.3.2 - 2022/05/12
+
+### Fixes
+* `web3` & `web3modal` packages are no longer imported dynamically, but via `Npm.depends` since these are the core required packages
+
 ## v0.3.0 & v0.3.1 - 2022/05/11
 
 ### Breaking changes

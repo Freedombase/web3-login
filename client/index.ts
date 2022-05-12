@@ -1,11 +1,15 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
+import Web3 from "web3"
+import Web3Modal from "web3modal"
 
 export '../common/index'
 
 /* eslint-env browser */
 
 /* global location */
+
+let web3Modal
 
 interface IProviderInfo {
   id: string
@@ -57,9 +61,6 @@ export type LoginOptions = {
 
 export const isHttps = () => location.protocol === 'https:'
 
-// Web3modal instance
-let web3Modal
-
 // Chosen wallet provider given by the dialog window
 let provider
 
@@ -68,8 +69,6 @@ let selectedAccount
 
 function init() {
   // We have to go to window.exports to access what we import in ./importScripts.ts
-  // @ts-ignore
-  const Web3Modal = window.exports.Web3Modal.default
 
   // Check that the web page is run in a secure context,
   // as otherwise MetaMask won't be available
@@ -124,7 +123,7 @@ export const verifyUserLogin = async (
 
   try {
     const msg = `0x${Buffer.from(message, 'utf8').toString('hex')}`
-    const sign = await ethereum.request({
+    const sign = await window.ethereum.request({
       method: verificationType,
       params: [msg, usersEthAddress, Meteor.userId()]
     })
@@ -145,7 +144,7 @@ async function fetchAccountData(
   callback: (error?: Meteor.Error, response?: string) => void
 ) {
   // Get a Web3 instance for the wallet
-  const web3 = new window.exports.Web3(provider)
+  const web3 = new Web3(provider)
 
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts()

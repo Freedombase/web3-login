@@ -1,7 +1,7 @@
 /* global Package */
 Package.describe({
   name: 'freedombase:web3-login',
-  version: '0.3.1',
+  version: '0.4.0',
   // Brief, one-line summary of the package.
   summary: 'Login & verification with Web3 modal',
   // URL to the Git repository containing the source code for this package.
@@ -12,9 +12,9 @@ Package.describe({
 })
 
 Npm.depends({
-  '@metamask/eth-sig-util': '4.0.1',
-  web3: '1.7.3',
-  web3modal: '1.9.7'
+  '@metamask/eth-sig-util': '5.0.3',
+  web3: '1.9.0',
+  web3modal: '1.9.12'
 })
 
 Package.onUse(function (api) {

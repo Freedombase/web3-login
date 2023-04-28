@@ -8,6 +8,15 @@
 
 ### Fixes
 
+## v0.4.0 - 2023/04/28
+
+### New features
+* Updated dependencies
+* Import scripts for wallets are now async and deferred for faster loading
+
+### Fixes
+* Fix `fortmatic` typos
+
 ## v0.3.2 - 2022/05/12
 
 ### Fixes

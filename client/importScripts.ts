@@ -21,7 +21,7 @@ if (
   Meteor.settings.public?.packages?.['freedombase:web3-login']?.walletconnect
 ) {
   createScript(
-    'https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js'
+    'https://unpkg.com/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js'
   )
 }
 

@@ -13,6 +13,7 @@
 ### New features
 * Updated dependencies
 * Import scripts for wallets are now async and deferred for faster loading
+* Updated dev dependencies
 
 ### Fixes
 * Fix `fortmatic` typos

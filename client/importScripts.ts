@@ -6,6 +6,9 @@ function createScript(url) {
     const script = document.createElement('script')
     script.type = 'text/javascript'
     script.src = url
+    script.async = true
+    script.defer = true
+    script.rel = 'preconnect'
     document.body.appendChild(script)
   } catch (e) {
     console.error(e)

@@ -7,8 +7,9 @@ jobs:
     strategy:
       matrix:
         meteorRelease:
-          - '--release 2.6.1'
-          - '--release 2.7.2'
+          - '--release 2.7.3'
+          - '--release 2.8.1'
+          - '--release 2.11.0'
           # Latest version
     steps:
       - name: Checkout code

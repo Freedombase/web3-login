@@ -22,7 +22,7 @@ if (
   )
 }
 
-// Formatic
-if (Meteor.settings.public?.packages?.['freedombase:web3-login']?.formatic) {
-  createScript('https://unpkg.com/fortmatic@2.2.1/dist/fortmatic.js')
+// Fortmatic
+if (Meteor.settings.public?.packages?.['freedombase:web3-login']?.fortmatic) {
+  createScript('https://unpkg.com/fortmatic@2.4.0/dist/fortmatic.js')
 }

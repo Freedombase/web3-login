@@ -42,7 +42,7 @@ To set up additional providers beside Metamask add them to your `settings.json`:
 Providers available at this moment (no need to install provider package, for settings see the `providerOptions` part):
 
 * [WalletConnect](https://github.com/Web3Modal/web3modal/blob/master/docs/providers/walletconnect.md)
-* [Formatic](https://github.com/Web3Modal/web3modal/blob/master/docs/providers/fortmatic.md)
+* [Fortmatic](https://github.com/Web3Modal/web3modal/blob/master/docs/providers/fortmatic.md)
 
 More coming soon!
 

@@ -38,7 +38,7 @@ type ProviderInfo = {
 
 interface ProviderOptions {
   walletconnect?: ProviderInfo
-  formatic?: ProviderInfo
+  fortmatic?: ProviderInfo
   // TODO https://github.com/Web3Modal/web3modal#provider-options
   torus?: ProviderInfo
   portis?: ProviderInfo
@@ -93,13 +93,13 @@ function init() {
     }
   }
   if (
-    Meteor.settings.public?.packages?.['freedombase:web3-login']?.formatic &&
+    Meteor.settings.public?.packages?.['freedombase:web3-login']?.fortmatic &&
     window.exports.Fortmatic
   ) {
-    providerOptions.formatic = {
+    providerOptions.fortmatic = {
       package: window.exports.Fortmatic,
       options:
-      Meteor.settings.public.packages['freedombase:web3-login'].formatic
+      Meteor.settings.public.packages['freedombase:web3-login'].fortmatic
     }
   }
 

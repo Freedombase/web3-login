@@ -1,7 +1,5 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
-import Web3 from "web3"
-import Web3Modal from "web3modal"
 
 export '../common/index'
 
@@ -69,6 +67,7 @@ let selectedAccount
 
 function init() {
   // We have to go to window.exports to access what we import in ./importScripts.ts
+  const Web3Modal = window.exports.Web3Modal.default
 
   // Check that the web page is run in a secure context,
   // as otherwise MetaMask won't be available
@@ -144,7 +143,7 @@ async function fetchAccountData(
   callback: (error?: Meteor.Error, response?: string) => void
 ) {
   // Get a Web3 instance for the wallet
-  const web3 = new Web3(provider)
+  const web3 = new window.exports.Web3(provider)
 
   // Get list of accounts of the connected wallet
   const accounts = await web3.eth.getAccounts()

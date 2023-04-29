@@ -8,6 +8,19 @@
 
 ### Fixes
 
+## v0.4.2 - 2023/04/29
+
+### Fixes
+* Revert including `web3` and `web3modal` NPM packages as they are too big. 
+
+## v0.4.1 - 2023/04/29
+
+### Breaking changes
+* Bump minimum Meteor version to 2.7.3
+
+### Fixes
+* Attempt to fix issue with NPM modules
+
 ## v0.4.0 - 2023/04/28
 
 ### New features

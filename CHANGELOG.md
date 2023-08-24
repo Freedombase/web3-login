@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.0.0 - UNRELEASED
+
+### Breaking changes
+* Minimum Meteor version is not 3.0-alpha.11
+
 ## v0.5.0 - 2023/08/24
 
 ### Breaking changes

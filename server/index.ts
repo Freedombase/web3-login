@@ -28,7 +28,7 @@ Accounts.registerLoginHandler('web3', async (options: LoginHandlerOptions) => {
   )
   if (!user) {
     // Create user
-    const userId = Accounts.insertUserDoc(
+    const userId = await Accounts.insertUserDoc(
       {},
       {
         username: options.web3Address,

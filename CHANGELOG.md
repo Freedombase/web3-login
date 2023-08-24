@@ -1,12 +1,12 @@
 # Changelog
 
-## Next - Unreleased
+## v0.5.0 - 2023/08/24
 
 ### Breaking changes
+* Minimum Meteor version is not 2.9.1
 
 ### New features
-
-### Fixes
+* More async functions implementations
 
 ## v0.4.2 - 2023/04/29
 

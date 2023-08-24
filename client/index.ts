@@ -126,14 +126,18 @@ export const verifyUserLogin = async (
       method: verificationType,
       params: [msg, usersEthAddress, Meteor.userId()]
     })
-    Meteor.call(
+    await Meteor.callAsync(
       'freedombase:verifyWeb3Login',
       sign,
       message,
-      usersEthAddress,
-      callback
-    )
+      usersEthAddress
+    ).catch(error => {
+      callback(error)
+    }).then(response => {
+      callback(null, response)
+    })
   } catch (e) {
+    callback(e)
     console.error(e)
   }
 }
@@ -244,16 +248,20 @@ export const verifyUserAction = async (
     const msg = `0x${Buffer.from(message, 'utf8').toString('hex')}`
     const sign = await ethereum.request({
       method: verificationType,
-      params: [msg, usersEthAddress, Meteor.userId()]
+      params: [msg, usersEthAddress, user._id]
     })
-    Meteor.call(
+    await Meteor.callAsync(
       'freedombase:verifyWeb3User',
       sign,
       message,
-      recordVerification,
-      callback
-    )
+      recordVerification
+    ).catch(error => {
+      callback(error)
+    }).then(response => {
+      callback(null, response)
+    })
   } catch (e) {
+    callback(e)
     console.error(e)
   }
 }

@@ -40,7 +40,7 @@ Meteor.methods({
     }
     return verified
   },
-  'freedombase:verifyWeb3User': function (
+  'freedombase:verifyWeb3User': async function (
     signature: string,
     message: string,
     recordVerification = true
@@ -51,7 +51,7 @@ Meteor.methods({
 
     // Verify that the current user has this eth address assigned
     const userId = this.userId
-    const user = Meteor.users.findOne(userId, {
+    const user = await Meteor.users.findOneAsync(userId, {
       projection: { 'services.web3': 1 }
     })
     const usersEthAddress = user.services.web3.address
@@ -74,7 +74,7 @@ Meteor.methods({
             // Success
             verified = true
             if (recordVerification) {
-              Meteor.users.update(userId, {
+              await Meteor.users.updateAsync(userId, {
                 $set: {
                   'services.web3.verified': true,
                   'services.web3.verifiedAt': new Date()

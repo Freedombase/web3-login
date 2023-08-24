@@ -9,14 +9,14 @@ type LoginHandlerOptions = {
   web3Address: string
 }
 
-Accounts.registerLoginHandler('web3', (options: LoginHandlerOptions) => {
+Accounts.registerLoginHandler('web3', async (options: LoginHandlerOptions) => {
   if (!options.web3Address) return undefined
 
   check(options, {
     web3Address: ethCheck
   })
 
-  const user = Meteor.users.findOne(
+  const user = await Meteor.users.findOneAsync(
     { 'services.web3.address': options.web3Address },
     {
       projection: {
@@ -54,11 +54,18 @@ Accounts.registerLoginHandler('web3', (options: LoginHandlerOptions) => {
 })
 
 // Add index for our service
-Meteor.users.createIndex('services.web3.address', {
+let indexFunction
+if (Meteor.users.createIndexAsync) {
+  indexFunction = Meteor.users.createIndexAsync
+} else {
+  indexFunction = Meteor.users.createIndex
+}
+
+indexFunction('services.web3.address', {
   unique: true,
   sparse: true
 })
-Meteor.users.createIndex('services.web3.id', {
+indexFunction('services.web3.id', {
   unique: true,
   sparse: true
 })

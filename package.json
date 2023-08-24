@@ -35,10 +35,10 @@
     }
   },
   "devDependencies": {
-    "@types/meteor": "^2.9.2",
-    "all-contributors-cli": "^6.25.0",
+    "@types/meteor": "^2.9.3",
+    "all-contributors-cli": "^6.26.1",
     "babel-eslint": "^10.1.0",
-    "husky": "^6.0.0",
-    "standard": "^16.0.4"
+    "husky": "^8.0.3",
+    "standard": "^17.1.0"
   }
 }

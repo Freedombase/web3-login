@@ -1,7 +1,7 @@
 /* global Package */
 Package.describe({
   name: 'freedombase:web3-login',
-  version: '1.0.0-alpha.1',
+  version: '1.0.0-alpha.2',
   // Brief, one-line summary of the package.
   summary: 'Login & verification with Web3 modal',
   // URL to the Git repository containing the source code for this package.

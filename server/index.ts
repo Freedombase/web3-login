@@ -54,18 +54,24 @@ Accounts.registerLoginHandler('web3', async (options: LoginHandlerOptions) => {
 })
 
 // Add index for our service
-let indexFunction
 if (Meteor.users.createIndexAsync) {
-  indexFunction = Meteor.users.createIndexAsync
+  Meteor.users.createIndexAsync('services.web3.address', {
+    unique: true,
+    sparse: true
+  })
+  Meteor.users.createIndexAsync('services.web3.id', {
+    unique: true,
+    sparse: true
+  })
 } else {
-  indexFunction = Meteor.users.createIndex
+  Meteor.users.createIndex('services.web3.address', {
+    unique: true,
+    sparse: true
+  })
+  Meteor.users.createIndex('services.web3.id', {
+    unique: true,
+    sparse: true
+  })
 }
 
-indexFunction('services.web3.address', {
-  unique: true,
-  sparse: true
-})
-indexFunction('services.web3.id', {
-  unique: true,
-  sparse: true
-})
+

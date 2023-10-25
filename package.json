@@ -35,7 +35,7 @@
     }
   },
   "devDependencies": {
-    "@types/meteor": "^2.9.3",
+    "@types/meteor": "^2.9.4",
     "all-contributors-cli": "^6.26.1",
     "babel-eslint": "^10.1.0",
     "husky": "^8.0.3",

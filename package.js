@@ -16,7 +16,7 @@ Npm.depends({
 })
 
 Package.onUse(function (api) {
-  api.versionsFrom('3.0-alpha.11')
+  api.versionsFrom(['2.13.3', '3.0-alpha.16'])
 
   api.use(['ecmascript', 'typescript', 'accounts-base', 'check'])
   api.mainModule('./client/index.ts', 'client')

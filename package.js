@@ -1,7 +1,7 @@
 /* global Package */
 Package.describe({
   name: 'freedombase:web3-login',
-  version: '1.0.0-alpha.2',
+  version: '1.0.0-alpha.3',
   // Brief, one-line summary of the package.
   summary: 'Login & verification with Web3 modal',
   // URL to the Git repository containing the source code for this package.
@@ -16,7 +16,7 @@ Npm.depends({
 })
 
 Package.onUse(function (api) {
-  api.versionsFrom(['2.13.3', '3.0-alpha.16'])
+  api.versionsFrom(['2.13.3', '3.0'])
 
   api.use(['ecmascript', 'typescript', 'accounts-base', 'check'])
   api.mainModule('./client/index.ts', 'client')

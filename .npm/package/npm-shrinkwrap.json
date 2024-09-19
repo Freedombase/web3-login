@@ -17,29 +17,29 @@
       "integrity": "sha512-hGfgoJwSUtB4Qbb02OGcjCmS7WnMqr13Y8L48artn/jV86sayaH47oL8w1+Nh6K/IIwTvni96Go7bFHnL0WTFw=="
     },
     "@noble/curves": {
-      "version": "1.1.0",
-      "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.1.0.tgz",
-      "integrity": "sha512-091oBExgENk/kGj3AZmtBDMpxQPDtxQABR2B9lb1JbVTs6ytdzZNwvhxQ4MWasRNEzlbEH8jCWFCwhF/Obj5AA=="
+      "version": "1.4.2",
+      "resolved": "https://registry.npmjs.org/@noble/curves/-/curves-1.4.2.tgz",
+      "integrity": "sha512-TavHr8qycMChk8UwMld0ZDRvatedkzWfH8IiaeGCfymOP5i0hSCozz9vHOL0nkwk7HRMlFnAiKpS2jrUmSybcw=="
     },
     "@noble/hashes": {
-      "version": "1.3.1",
-      "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.3.1.tgz",
-      "integrity": "sha512-EbqwksQwz9xDRGfDST86whPBgM65E0OH/pCgqW0GBVzO22bNE+NuIbeTb714+IfSjU3aRk47EUvXIb5bTsenKA=="
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.4.0.tgz",
+      "integrity": "sha512-V1JJ1WTRUqHHrOSh597hURcMqVKVGL/ea3kv0gSnEdsEZ0/+VyPghM1lMNGc00z7CIQorSvbKpuJkxvuHbvdbg=="
     },
     "@scure/base": {
-      "version": "1.1.5",
-      "resolved": "https://registry.npmjs.org/@scure/base/-/base-1.1.5.tgz",
-      "integrity": "sha512-Brj9FiG2W1MRQSTB212YVPRrcbjkv48FoZi/u4l/zds/ieRrqsh7aUf6CLwkAq61oKXr/ZlTzlY66gLIj3TFTQ=="
+      "version": "1.1.8",
+      "resolved": "https://registry.npmjs.org/@scure/base/-/base-1.1.8.tgz",
+      "integrity": "sha512-6CyAclxj3Nb0XT7GHK6K4zK6k2xJm6E4Ft0Ohjt4WgegiFUHEtFb2CGzmPmGBwoIhrLsqNLYfLr04Y1GePrzZg=="
     },
     "@scure/bip32": {
-      "version": "1.3.1",
-      "resolved": "https://registry.npmjs.org/@scure/bip32/-/bip32-1.3.1.tgz",
-      "integrity": "sha512-osvveYtyzdEVbt3OfwwXFr4P2iVBL5u1Q3q4ONBfDY/UpOuXmOlbgwc1xECEboY8wIays8Yt6onaWMUdUbfl0A=="
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/@scure/bip32/-/bip32-1.4.0.tgz",
+      "integrity": "sha512-sVUpc0Vq3tXCkDGYVWGIZTRfnvu8LoTDaev7vbwh0omSvVORONr960MQWdKqJDCReIEmTj3PAr73O3aoxz7OPg=="
     },
     "@scure/bip39": {
-      "version": "1.2.1",
-      "resolved": "https://registry.npmjs.org/@scure/bip39/-/bip39-1.2.1.tgz",
-      "integrity": "sha512-Z3/Fsz1yr904dduJD0NpiyRHhRYHdcnyh73FZWiV+/qhWi83wNJ3NWolYqCEN+ZWsUz2TWwajJggcRE9r1zUYg=="
+      "version": "1.3.0",
+      "resolved": "https://registry.npmjs.org/@scure/bip39/-/bip39-1.3.0.tgz",
+      "integrity": "sha512-disdg7gHuTDZtY+ZdkmLpPCk7fxZSu3gBiEGuoC1XYxv9cGx3Z6cpTggCgW6odSOOIXCiDjuGejW+aJKCY/pIQ=="
     },
     "bn.js": {
       "version": "4.12.0",
@@ -47,9 +47,9 @@
       "integrity": "sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA=="
     },
     "ethereum-cryptography": {
-      "version": "2.1.2",
-      "resolved": "https://registry.npmjs.org/ethereum-cryptography/-/ethereum-cryptography-2.1.2.tgz",
-      "integrity": "sha512-Z5Ba0T0ImZ8fqXrJbpHcbpAvIswRte2wGNR/KePnu8GbbvgJ47lMxT/ZZPG6i9Jaht4azPDop4HaM00J0J59ug=="
+      "version": "2.2.1",
+      "resolved": "https://registry.npmjs.org/ethereum-cryptography/-/ethereum-cryptography-2.2.1.tgz",
+      "integrity": "sha512-r/W8lkHSiTLxUxW8Rf3u4HGB0xQweG2RyETjywylKZSzLWoWAijRz8WCuOtJ6wah+avllXBqZuk29HCCvhEIRg=="
     },
     "ethjs-util": {
       "version": "0.1.6",
